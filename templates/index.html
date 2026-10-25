@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JARVIS Sketch Agent</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>JARVIS Sketch Agent</h1>
+        <p>Autonomous Vector & Drawing Code Renderer</p>
+    </header>
+
+    <main>
+        <div class="panel">
+            <div class="panel-title">
+                <span>Drawing Configuration</span>
+            </div>
+            <div class="controls-row">
+                <div>
+                    <label for="format-select" style="font-size:0.75rem; color:var(--text-muted); display:block; margin-bottom:4px;">FORMAT</label>
+                    <select id="format-select">
+                        <option value="svg" selected>SVG Markup</option>
+                        <option value="json">JSON Instructions</option>
+                        <option value="coords">Coordinates (COORDS)</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="project-name" style="font-size:0.75rem; color:var(--text-muted); display:block; margin-bottom:4px;">PROJECT NAME</label>
+                    <input type="text" id="project-name" value="jarvis_sketch" placeholder="sketch_name">
+                </div>
+            </div>
+
+            <label for="code-input" style="font-size:0.75rem; color:var(--text-muted); display:block; margin-bottom:4px;">DRAWING CODE / INSTRUCTIONS</label>
+            <textarea id="code-input" placeholder="Enter SVG markup, JSON, or coordinate commands here..."></textarea>
+
+            <div class="btn-group">
+                <button id="generate-btn" class="primary">Generate Sketch</button>
+                <button id="clear-btn" class="danger">Clear</button>
+            </div>
+        </div>
+
+        <div class="panel">
+            <div class="panel-title">
+                <span>Live Preview & Output</span>
+            </div>
+            
+            <div id="status-box" class="status-box"></div>
+
+            <div class="canvas-wrapper" id="canvas-container">
+                <span class="placeholder-text">Preview area khali hai. Code enter kar ke Generate dabayen.</span>
+            </div>
+
+            <div class="btn-group">
+                <button id="download-btn" disabled>Download SVG</button>
+                <button id="android-app-btn" disabled>Open in Android App</button>
+            </div>
+        </div>
+
+        <div class="panel">
+            <div class="panel-title">
+                <span>Saved Projects History</span>
+                <button id="refresh-projects-btn" style="padding:3px 8px; font-size:0.7rem;">Refresh</button>
+            </div>
+            <ul class="project-list" id="project-list-ul">
+                <li class="project-item placeholder-text">Loading projects...</li>
+            </ul>
+        </div>
+    </main>
+
+    <script src="{{ url_for('static', filename='main.js') }}"></script>
+</body>
+</html>

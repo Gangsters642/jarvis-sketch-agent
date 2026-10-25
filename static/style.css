@@ -1,0 +1,222 @@
+:root {
+    --bg-main: #060b14;
+    --bg-panel: #0d1627;
+    --bg-input: #080f1c;
+    --cyan: #00f0ff;
+    --cyan-dim: rgba(0, 240, 255, 0.25);
+    --text-main: #e2f1ff;
+    --text-muted: #7f9bb8;
+    --danger: #ff3b5c;
+    --success: #00e676;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    padding: 12px;
+    max-width: 720px;
+    margin: 0 auto;
+}
+
+header {
+    text-align: center;
+    padding: 14px 10px;
+    border: 1px solid var(--cyan-dim);
+    border-radius: 10px;
+    background: linear-gradient(180deg, rgba(0, 240, 255, 0.08), rgba(13, 22, 39, 0.9));
+    margin-bottom: 14px;
+    box-shadow: 0 0 15px rgba(0, 240, 255, 0.12);
+}
+
+header h1 {
+    font-size: 1.35rem;
+    letter-spacing: 2px;
+    color: var(--cyan);
+    text-transform: uppercase;
+}
+
+header p {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-top: 4px;
+}
+
+.panel {
+    background-color: var(--bg-panel);
+    border: 1px solid var(--cyan-dim);
+    border-radius: 10px;
+    padding: 14px;
+    margin-bottom: 14px;
+}
+
+.panel-title {
+    font-size: 0.9rem;
+    color: var(--cyan);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.controls-row {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+}
+
+input[type="text"],
+select,
+textarea {
+    width: 100%;
+    background-color: var(--bg-input);
+    color: var(--text-main);
+    border: 1px solid var(--cyan-dim);
+    border-radius: 6px;
+    padding: 10px;
+    font-size: 0.9rem;
+    outline: none;
+}
+
+input[type="text"]:focus,
+select:focus,
+textarea:focus {
+    border-color: var(--cyan);
+    box-shadow: 0 0 8px rgba(0, 240, 255, 0.25);
+}
+
+.controls-row > * {
+    flex: 1 1 45%;
+}
+
+textarea {
+    font-family: monospace;
+    min-height: 150px;
+    resize: vertical;
+    margin-bottom: 10px;
+}
+
+.btn-group {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+button {
+    flex: 1 1 auto;
+    padding: 11px 14px;
+    border-radius: 6px;
+    border: 1px solid var(--cyan);
+    background-color: rgba(0, 240, 255, 0.12);
+    color: var(--cyan);
+    font-weight: 600;
+    font-size: 0.88rem;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    transition: all 0.15s ease;
+}
+
+button.primary {
+    background-color: var(--cyan);
+    color: #04101c;
+    box-shadow: 0 0 12px rgba(0, 240, 255, 0.35);
+}
+
+button.danger {
+    border-color: var(--danger);
+    color: var(--danger);
+    background-color: rgba(255, 59, 92, 0.1);
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+button:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+}
+
+.status-box {
+    padding: 10px 12px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    margin-bottom: 12px;
+    display: none;
+    word-break: break-word;
+}
+
+.status-box.ok {
+    display: block;
+    background-color: rgba(0, 230, 118, 0.1);
+    border: 1px solid var(--success);
+    color: var(--success);
+}
+
+.status-box.err {
+    display: block;
+    background-color: rgba(255, 59, 92, 0.12);
+    border: 1px solid var(--danger);
+    color: #ff8096;
+}
+
+.canvas-wrapper {
+    width: 100%;
+    min-height: 280px;
+    background-color: #040811;
+    background-image: radial-gradient( rgba(0, 240, 255, 0.12) 1px, transparent 1px );
+    background-size: 20px 20px;
+    border: 1px dashed var(--cyan-dim);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.canvas-wrapper svg {
+    max-width: 100%;
+    max-height: 360px;
+    height: auto;
+    width: auto;
+}
+
+.placeholder-text {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    text-align: center;
+}
+
+.project-list {
+    list-style: none;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.project-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px;
+    border-bottom: 1px solid rgba(0, 240, 255, 0.1);
+    font-size: 0.82rem;
+}
+
+.project-item button {
+    flex: 0 0 auto;
+    padding: 5px 10px;
+    font-size: 0.75rem;
+}
